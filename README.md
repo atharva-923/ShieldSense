@@ -11,7 +11,7 @@
 
 ## 🔴 Live Demo
 
-> **[https://YOUR-USERNAME.github.io/shield-sense-dashboard/](https://Atharva-Patil9.github.io/shield-sense-dashboard/)**
+> **[https://YOUR-USERNAME.github.io/shield-sense-dashboard/](https://atharva-923.github.io/ShieldSense/)**
 
 ---
 
