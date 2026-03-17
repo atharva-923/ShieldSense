@@ -368,9 +368,15 @@ body::before {
 ::-webkit-scrollbar-track { background:var(--bg); }
 ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:2px; }
 
-.toast { position:fixed; top:70px; right:12px; left:12px; background:var(--surface); border:1px solid var(--red); border-left:4px solid var(--red); padding:14px 16px; font-family:var(--font-mono); font-size:12px; color:var(--text); z-index:9000; box-shadow:0 0 40px rgba(239,68,68,0.3); transform:translateY(-120%); transition:transform 0.3s ease; }
+.toast { position:fixed; top:70px; right:12px; left:12px; background:var(--surface); border:1px solid var(--red); border-left:4px solid var(--red); padding:14px 16px; font-family:var(--font-mono); font-size:12px; color:var(--text); z-index:9000; box-shadow:0 0 40px rgba(239,68,68,0.3); transform:translateY(-200%); transition:transform 0.4s ease; cursor:pointer; }
 .toast.show { transform:translateY(0); }
-.toast-title { color:var(--red); font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+.toast-title { color:var(--red); font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center; }
+.toast-close { color:var(--muted); font-size:14px; }
+
+@media (min-width:600px) {
+  .toast { left:auto; max-width:320px; transform:translateX(120%); top:80px; right:24px; }
+  .toast.show { transform:translateX(0); }
+}
 
 .section-label { font-family:var(--font-mono); font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
 .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
@@ -600,8 +606,8 @@ body::before {
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast">
-  <div class="toast-title">⚠ ALERT DETECTED</div>
+<div class="toast" id="toast" onclick="document.getElementById('toast').classList.remove('show')">
+  <div class="toast-title">⚠ ALERT DETECTED <span class="toast-close">✕</span></div>
   <div id="toast-msg">Fall detected on helmet!</div>
 </div>
 
@@ -787,7 +793,10 @@ function updateCards(d) {
     fallMain.style.color = 'var(--red)';
     fallSub.textContent  = 'Impact or freefall!';
     setStatus('fall-status', 'ALERT', 'status-alert');
-    if (!prevFall) showToast('Fall detected on helmet unit!');
+    if (!prevFall) {
+      showToast('Fall detected on helmet unit!');
+      prevFall = true;
+    }
   } else {
     ring.textContent = '🛡';
     ring.classList.remove('alert');
