@@ -11,7 +11,7 @@
 
 ## 🔴 Live Demo
 
-> **[https://YOUR-USERNAME.github.io/shield-sense-dashboard/](https://atharva-923.github.io/ShieldSense/)**
+> **[https://atharva-923.github.io/shield-sense-dashboard/](https://atharva-923.github.io/ShieldSense/)**
 
 ---
 
@@ -84,7 +84,7 @@ shield-sense-dashboard/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR-USERNAME/shield-sense-dashboard.git
+git clone https://github.com/atharva-923/shield-sense-dashboard.git
 cd shield-sense-dashboard
 ```
 
